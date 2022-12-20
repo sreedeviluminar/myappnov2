@@ -21,7 +21,7 @@ class _SplashScreenState extends State {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 8), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => Home()));
     });
@@ -31,28 +31,27 @@ class _SplashScreenState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        ///set background color for container
-        //color: Colors.black,
-         ///  set background image for container
+        /// set color for screen background
+        // color: Colors.red,
+        /// set image for screen background
         // decoration: const BoxDecoration(
         //     image: DecorationImage(
-        //         fit: BoxFit.cover,
-        //         image: NetworkImage(
-        //             "https://free4kwallpapers.com/uploads/originals/2015/07/18/deep-blue-background.jpg"))),
-
-        ///set linear backgrounconst d color for container
+        //         fit:BoxFit.cover,
+        //         image:AssetImage(
+        //             "assets/images/imag.jpg"))),
+        /// set gradient for screen background
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              begin:Alignment.bottomCenter ,
-              end: Alignment.topCenter,
+            begin: Alignment.bottomRight,
+              end: Alignment.topRight,
               colors: [
-                Colors.black38,
-                Colors.grey,
-                Colors.white54
-
-          ]),
+                       Colors.blueAccent,
+                       Colors.green,
+                       Colors.yellow
+          ])
         ),
-        child: Center(
+
+      child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

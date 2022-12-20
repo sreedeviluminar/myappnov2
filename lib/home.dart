@@ -5,57 +5,59 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Home"),
-        ),
-        body: Column(
-          children: [
-            const Center(
-                child: Text(
-              "LoginPage",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-            )),
-             Padding(
-              padding: EdgeInsets.all(20),
-              child: TextField(
-                decoration: InputDecoration(
-                    hintText: "Enter User Name",
-                    labelText: "USERNAME",
-                    prefixIcon: Icon(Icons.account_box_sharp),
-                    border: OutlineInputBorder(
-                      borderRadius:BorderRadius.circular(20),
-                    )),
-              ),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("LOGIN PAGE"),
+      ),
+      body: Column(
+        children: [
+          const Text(
+            "LOGIN PAGE",
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 30, color: Colors.green),
+          ),
+          Padding(
+            padding: EdgeInsets.all(20.0),
+            child: TextField(
+              decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.account_box_sharp),
+                  hintText: "Enter username",
+                  labelText: "USERNAME",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30))),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-              child: TextField(
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.visibility_off),
-                    suffixIcon: Icon(Icons.visibility_outlined),
-                    hintText: "Enter Password",
-                    labelText: "PASSWORD",
-                    border: OutlineInputBorder()),
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+            child: TextField(
+              obscureText: true,
+              obscuringCharacter: '*',
+              decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.visibility_off),
+                  suffixIcon: Icon(Icons.visibility),
+                  hintText: "Enter password",
+                  labelText: "PASSWORD",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30))),
             ),
-            ElevatedButton(
-                onPressed: () {
-                  Fluttertoast.showToast(
-                      msg: "This is Center Short Toast",
-                      toastLength: Toast.LENGTH_SHORT,
-                      gravity: ToastGravity.BOTTOM,
-                      backgroundColor: Colors.red,
-                      textColor: Colors.white,
-                      fontSize: 16.0);
-                },
-                child: const Text("Login")),
-           const SizedBox(
-              height: 30,
-            ),
-            TextButton(
-                onPressed: () {},
-                child: const Text("Not A User?  Register Here"))
-          ],
-        ));
+          ),
+          ElevatedButton(onPressed: () {
+            Fluttertoast.showToast(
+                msg: "Check ur password",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                //timeInSecForIosWeb: 1,
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 16.0
+            );
+
+          }, child: Text("LOGIN")),
+          const SizedBox(
+            height: 20 ),
+          TextButton(onPressed: () {}, child: const Text('Not a User, Register Here'))
+        ],
+      ),
+    );
   }
 }
