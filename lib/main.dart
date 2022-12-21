@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:myappnov2/login%20with%20validation.dart';
 
 import 'home.dart';
 
@@ -23,7 +24,7 @@ class _SplashScreenState extends State {
     super.initState();
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Home()));
+          context, MaterialPageRoute(builder: (context) => LoginForm()));
     });
   }
 
