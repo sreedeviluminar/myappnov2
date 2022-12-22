@@ -22,7 +22,8 @@ class _LoginFormState extends State {
         key: formkey,
         child: ListView(
           children: [
-            const Center(child: Text("LoginPage")),
+            const Center(child: Text("LoginPage",style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 30, color: Colors.green),)),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: TextFormField(
@@ -30,8 +31,9 @@ class _LoginFormState extends State {
                     prefixIcon: Icon(Icons.account_box_sharp),
                     labelText: 'UserName',
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10))),
+                        borderRadius: BorderRadius.circular(100))),
                 textInputAction: TextInputAction.next,
+
                 validator: (uname) {
                   if (uname!.isEmpty || !uname.contains('@')) {
                     return 'Enter a valid UserName';
@@ -58,13 +60,10 @@ class _LoginFormState extends State {
                           }
                         });
                       },
-                      icon: Icon(showpass == true
-                          ? Icons.visibility_off
-                          : Icons.visibility),
-                    ),
+                      icon: Icon(showpass == true ? Icons.visibility_off : Icons.visibility),),
                     labelText: 'Password',
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10))),
+                        borderRadius: BorderRadius.circular(100))),
                 textInputAction: TextInputAction.done,
                 validator: (password) {
                   if (password!.isEmpty || password.length < 6) {
