@@ -17,8 +17,8 @@ class ListPage extends StatelessWidget {
             shadowColor: Colors.red,
             color: Colors.green,
             child: ListTile(
-              title: Text("PetStore 1"),
-              subtitle: Text("description"),
+              title: const Text("PetStore 1"),
+              subtitle: const Text("description"),
               leading: const CircleAvatar(
                   backgroundImage:NetworkImage("https://static01.nyt.com/images/2020/05/09/multimedia/09sp-ai-pets-promo/09sp-ai-pets-promo-mediumSquareAt3X.jpg")),
               trailing: Wrap(
@@ -36,19 +36,19 @@ class ListPage extends StatelessWidget {
             leading: Image(image: NetworkImage("https://static01.nyt.com/images/2020/05/09/multimedia/09sp-ai-pets-promo/09sp-ai-pets-promo-mediumSquareAt3X.jpg")),
             trailing: Icon(Icons.phone),
           ),
-          ListTile(
+          const ListTile(
             title: Text("PetStore 1"),
             subtitle: Text("description"),
             leading: Image(image: NetworkImage("https://static01.nyt.com/images/2020/05/09/multimedia/09sp-ai-pets-promo/09sp-ai-pets-promo-mediumSquareAt3X.jpg")),
             trailing: Icon(Icons.phone),
           ),
-          ListTile(
+          const ListTile(
             title: Text("PetStore 1"),
             subtitle: Text("description"),
             leading: Image(image: NetworkImage("https://static01.nyt.com/images/2020/05/09/multimedia/09sp-ai-pets-promo/09sp-ai-pets-promo-mediumSquareAt3X.jpg")),
             trailing: Icon(Icons.phone),
           ),
-          ListTile(
+          const ListTile(
             title: Text("PetStore 1"),
             subtitle: Text("description"),
             leading: Image(image: NetworkImage("https://static01.nyt.com/images/2020/05/09/multimedia/09sp-ai-pets-promo/09sp-ai-pets-promo-mediumSquareAt3X.jpg")),

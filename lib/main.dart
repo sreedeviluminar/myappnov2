@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:myappnov2/Grid.with.builder.dart';
 import 'package:myappnov2/ListPage.dart';
+import 'package:myappnov2/listview_with_custom.dart';
 import 'package:myappnov2/login%20with%20validation.dart';
 
+import 'gridview.dart';
 import 'home.dart';
 
 void main() {
@@ -25,7 +28,7 @@ class _SplashScreenState extends State {
     super.initState();
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => ListPage()));
+          context, MaterialPageRoute(builder: (context) => Grid_with_builder()));
     });
   }
 
