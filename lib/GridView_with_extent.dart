@@ -6,19 +6,15 @@ class Grid_Extent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GridView.extent(
-        maxCrossAxisExtent: 100,
-        children: List.generate(10, (index) {
-          return const Card(
-            color: Colors.purple,
-            child: Center(
-              child: Text(
-                "HEllo",
-                style: TextStyle(fontSize: 10),
-              ),
-            ),
-          );
-        }),
-      ),
+          maxCrossAxisExtent: 60,
+      children:List.generate(30, (index){
+        return Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Container(
+            child: Image(image: AssetImage("assets/icons/babydog.png"),),
+          ),
+        );
+      }) ,)
     );
   }
 }
