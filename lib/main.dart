@@ -2,7 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:myappnov2/Grid.with.builder.dart';
+import 'package:myappnov2/GridView_with_extent.dart';
+import 'package:myappnov2/Grid_with_custom.dart';
+import 'package:myappnov2/Gridview_with_count.dart';
 import 'package:myappnov2/ListPage.dart';
+import 'package:myappnov2/StackDemo.dart';
 import 'package:myappnov2/listview_with_custom.dart';
 import 'package:myappnov2/login%20with%20validation.dart';
 
@@ -28,7 +32,7 @@ class _SplashScreenState extends State {
     super.initState();
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Grid_with_builder()));
+          context, MaterialPageRoute(builder: (context) => Mystack()));
     });
   }
 
