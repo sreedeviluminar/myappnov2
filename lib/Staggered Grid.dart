@@ -33,7 +33,6 @@ class StaggeredGrid1 extends StatelessWidget {
             Customchild(iconData: Icons.tab, bgcolor: Colors.grey,),
             Customchild(iconData: Icons.vibration, bgcolor: Colors.purple,),
             Customchild(iconData: Icons.gamepad, bgcolor: Colors.brown,),
-
           ]
         ),
     );

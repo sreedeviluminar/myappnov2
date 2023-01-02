@@ -59,7 +59,7 @@ class Grid_count extends StatelessWidget {
           crossAxisCount: 2,
           mainAxisSpacing: 10,
           crossAxisSpacing: 10,
-          children: List.generate(20, (index) {
+          children:List.generate(20, (index) {
             return Card(
               color: colors[index],
               child: Row(
