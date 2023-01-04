@@ -33,7 +33,11 @@ dependencies:
     sdk: flutter
   fluttertoast: ^8.1.2
   staggered_grid_view_flutter: ^0.0.4
-  flutter_staggered_grid_view: 
+  flutter_staggered_grid_view:
+  rating_bar:
+  font_awesome_flutter:
+  eva_icons_flutter:
+  flutter_svg:
 
 
   # The following adds the Cupertino Icons font to your application.
