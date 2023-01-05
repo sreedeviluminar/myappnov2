@@ -6,9 +6,9 @@ import 'ListPage.dart';
 void main() {
   runApp(MaterialApp(
     home: MyTab(),
-    theme: ThemeData(
-      colorScheme: ColorScheme.fromSwatch().copyWith(primary: Color(0xff2e7d32))
-    ),
+    // theme: ThemeData(
+    //   colorScheme: ColorScheme.fromSwatch().copyWith(primary: Color(0xff2e7d32))
+    // ),
     debugShowCheckedModeBanner: false,));
 }
 
@@ -19,6 +19,7 @@ class MyTab extends StatelessWidget{
         length: 4,
       child: Scaffold(
        appBar: AppBar(
+         backgroundColor: Colors.green[800],
          title:Text("My Tab Bar"),
          actions:  [
            Icon(Icons.camera_alt),
