@@ -56,13 +56,12 @@ class hoteldetails extends StatelessWidget {
                                 child: Center(
                                     child: Text(
                                       "DETAIL",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.white,),
                                     )),
                               ),
                               Container(
                                 child: Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
                                       height: 89,
