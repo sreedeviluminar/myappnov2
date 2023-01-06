@@ -38,6 +38,7 @@ dependencies:
   font_awesome_flutter:
   eva_icons_flutter:
   flutter_svg:
+  flutter_rating_bar:
 
 
   # The following adds the Cupertino Icons font to your application.
