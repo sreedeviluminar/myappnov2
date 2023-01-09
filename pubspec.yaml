@@ -39,6 +39,7 @@ dependencies:
   eva_icons_flutter:
   flutter_svg:
   flutter_rating_bar:
+  carousel_slider:
 
 
   # The following adds the Cupertino Icons font to your application.
