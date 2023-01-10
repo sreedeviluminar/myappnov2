@@ -7,10 +7,12 @@ void main() {
     home: Farmer(),
   ));
 }
+
 class Farmer extends StatefulWidget {
   @override
   State<Farmer> createState() => _FarmerState();
 }
+
 class _FarmerState extends State<Farmer> {
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class _FarmerState extends State<Farmer> {
                   ))),
             ],
             bottom: AppBar(
+              elevation: 0,
               title: Container(
                 color: Colors.white,
                 width: double.infinity,
@@ -150,7 +153,6 @@ class _FarmerState extends State<Farmer> {
                         children: const [
                           Icon(Icons.home_work),
                           SizedBox(
-
                             height: 10,
                           ),
                           Text("Local Sourrounding")
@@ -233,7 +235,7 @@ class VegGrid extends StatelessWidget {
         shrinkWrap: true,
         padding: const EdgeInsets.all(10.0),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, crossAxisSpacing: 5, mainAxisSpacing: 5),
+            crossAxisCount: 3, crossAxisSpacing: 10, mainAxisSpacing: 5),
         itemCount: images.length,
         itemBuilder: (BuildContext, int index) {
           return Column(
@@ -254,8 +256,7 @@ class VegGrid extends StatelessWidget {
                   ],
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(images[index])),
+                      fit: BoxFit.cover, image: NetworkImage(images[index])),
                 ),
               ),
               const SizedBox(

@@ -40,6 +40,8 @@ dependencies:
   flutter_svg:
   flutter_rating_bar:
   carousel_slider:
+  expansion_tile_card:
+  lottie: ^2.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -73,6 +75,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/svg/
+    - assets/anim/
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
