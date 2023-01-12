@@ -60,6 +60,7 @@ class _FarmerState extends State<Farmer> {
                 height: 10,
               ),
               Row(
+
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
