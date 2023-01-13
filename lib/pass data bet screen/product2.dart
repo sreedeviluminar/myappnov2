@@ -17,6 +17,7 @@ class Productlist extends StatelessWidget {
       body: Padding(padding: EdgeInsets.all(20),
         child: Column(
           children: [
+            Image.asset(product["image"]),
             Text("${product["id"].toString()}"),
             Text("${product["name"]}"),
             Text("${product["description"]}")

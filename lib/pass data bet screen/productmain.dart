@@ -7,7 +7,7 @@ void main() {
   runApp( MaterialApp(
     home: ProductScreen(),
     routes: {
-      "secondone": (context) => Productlist(),
+      "secondone" : (context) => Productlist(),
     },
   ));
 }
@@ -23,7 +23,7 @@ class ProductScreen extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         children: dummyproducts.map((product) {
           return TextButton(
-              onPressed: ()=> gotonext(context, product["id"]),
+              onPressed:() => gotonext(context, product["id"]),
               child: Text("${product["name"]}"));
         }).toList(),
       ),
