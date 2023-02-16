@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart' as sql;
 
 class SqlHelper {
-
   static Future<void> createTable(sql.Database database) async {
     await database.execute("""CREATE TABLE items(
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -32,25 +31,25 @@ class SqlHelper {
     return id;
   }
 
-  static Future<void> deleteItem (int id) async {
+  static Future<void> deleteItem(int id) async {
     final db = await SqlHelper.db();
-    try{
-      await db.delete("items",where: "id = ?",whereArgs: [id]);
-    }catch(e){
+    try {
+      await db.delete("items", where: "id = ?", whereArgs: [id]);
+    } catch (e) {
       debugPrint("Something went wrong $e");
     }
   }
 
-  static Future<int> updateItem(int id, String title, String description) async {
+  static Future<int> updateItem(
+      int id, String title, String description) async {
     final db = await SqlHelper.db();
     final newdata = {
-      'title' : title,
-      'description' : description,
-      'createdAt':DateTime.now().toString()
+      'title': title,
+      'description': description,
+      'createdAt': DateTime.now().toString()
     };
-    final result = await db.update("items", newdata, where: "id  = ?",whereArgs: [id]);
+    final result =
+        await db.update("items", newdata, where: "id  = ?", whereArgs: [id]);
     return result;
-
   }
-
 }
