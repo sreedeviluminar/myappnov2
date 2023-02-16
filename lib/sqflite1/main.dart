@@ -111,7 +111,7 @@ class HomeStorageState extends State {
                           await createItem();
                         }
                         if (id != null) {
-                          //  await updateItem();
+                          await updateItem(id);
                         }
                         title_controller.text = '';
                         description_controller.clear();
@@ -129,7 +129,15 @@ class HomeStorageState extends State {
     refreshdata();
   }
 
- void  deleteitem(int id)  async{
+  void deleteitem(int id) async {
     await SqlHelper.deleteItem(id);
-}
+    refreshdata();
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(content: Text("Successfully Deleted")));
+  }
+
+ Future<void> updateItem(int id)  async{
+   await SqlHelper.updateItem(id,title_controller.text,description_controller.text);
+   refreshdata();
+ }
 }
