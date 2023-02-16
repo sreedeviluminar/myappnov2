@@ -20,9 +20,7 @@ class HomeStorageState extends State {
     final data = await SqlHelper.getItems();
     setState(() {
       datas = data;
-      if (datas != null) {
-        isloading = false;
-      }
+      isloading = false;
     });
   }
 
@@ -46,15 +44,18 @@ class HomeStorageState extends State {
                   child: ListTile(
                     title: Text(datas[index]['title']),
                     subtitle: Text(datas[index]['description']),
-                    trailing: Row(
-                      children: [
-                        IconButton(
-                            onPressed: () => showform(datas[index]['id']),
-                            icon: const Icon(Icons.edit_calendar_outlined)),
-                        IconButton(
-                            onPressed: () => deleteitem(datas[index]['id']),
-                            icon: Icon(Icons.delete))
-                      ],
+                    trailing: SizedBox(
+                      width: 100,
+                      child: Row(
+                        children: [
+                          IconButton(
+                              onPressed: () => showform(datas[index]['id']),
+                              icon: const Icon(Icons.edit_calendar_outlined)),
+                          IconButton(
+                              onPressed: () => deleteitem(datas[index]['id']),
+                              icon: Icon(Icons.delete))
+                        ],
+                      ),
                     ),
                   ),
                 );
@@ -72,7 +73,7 @@ class HomeStorageState extends State {
   void showform(int? id) async {
     if (id != null) {
       //id == null  create new   id != null   update
-      final existingData = datas.firstWhere((element) => element[id] == id);
+      final existingData = datas.firstWhere((element) => element['id'] == id);
       title_controller.text = existingData['title'];
       description_controller.text = existingData['description'];
     }
@@ -114,7 +115,7 @@ class HomeStorageState extends State {
                           await updateItem(id);
                         }
                         title_controller.text = '';
-                        description_controller.clear();
+                        description_controller.text ='';
                         Navigator.of(context).pop();
                       },
                       child: Text(id == null ? 'Create New' : "Update"))
