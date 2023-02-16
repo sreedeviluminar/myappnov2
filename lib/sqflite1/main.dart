@@ -40,15 +40,25 @@ class HomeStorageState extends State {
       body: isloading
           ? const CircularProgressIndicator()
           : ListView.builder(
-        itemCount: datas.length,
-          itemBuilder: (context, int) {
-              return  Card(
-                child: ListTile(
-                  title: Text(datas[int]['title']),
-                  subtitle: Text(datas[int]['description']),
-                ),
-              );
-            }),
+              itemCount: datas.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: ListTile(
+                    title: Text(datas[index]['title']),
+                    subtitle: Text(datas[index]['description']),
+                    trailing: Row(
+                      children: [
+                        IconButton(
+                            onPressed: () => showform(datas[index]['id']),
+                            icon: const Icon(Icons.edit_calendar_outlined)),
+                        IconButton(
+                            onPressed: () => deleteitem(datas[index]['id']),
+                            icon: Icon(Icons.delete))
+                      ],
+                    ),
+                  ),
+                );
+              }),
       floatingActionButton: FloatingActionButton(
         onPressed: () => showform(null),
         child: const Icon(Icons.add),
@@ -63,7 +73,7 @@ class HomeStorageState extends State {
     if (id != null) {
       //id == null  create new   id != null   update
       final existingData = datas.firstWhere((element) => element[id] == id);
-      title_controller.text       = existingData['title'];
+      title_controller.text = existingData['title'];
       description_controller.text = existingData['description'];
     }
     showModalBottomSheet(
@@ -113,8 +123,13 @@ class HomeStorageState extends State {
             ));
   }
 
- Future<void> createItem() async {
-    await SqlHelper.create_item(title_controller.text , description_controller.text);
+  Future<void> createItem() async {
+    await SqlHelper.create_item(
+        title_controller.text, description_controller.text);
     refreshdata();
- }
+  }
+
+ void  deleteitem(int id)  async{
+    await SqlHelper.deleteItem(id);
+}
 }

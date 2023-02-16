@@ -30,4 +30,6 @@ class SqlHelper {
         conflictAlgorithm: sql.ConflictAlgorithm.replace);
     return id;
   }
+
+  static deleteItem(int id) {}
 }
