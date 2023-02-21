@@ -125,8 +125,7 @@ class HomeStorageState extends State {
   }
 
   Future<void> createItem() async {
-    await SqlHelper.create_item(
-        title_controller.text, description_controller.text);
+    await SqlHelper.create_item(title_controller.text, description_controller.text);
     refreshdata();
   }
 

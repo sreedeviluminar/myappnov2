@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart' as sql;
 
 class SqlHelper {
+
   static Future<void> createTable(sql.Database database) async {
     await database.execute("""CREATE TABLE items(
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -51,5 +52,12 @@ class SqlHelper {
     final result =
         await db.update("items", newdata, where: "id  = ?", whereArgs: [id]);
     return result;
+  }
+
+  // Read a single item by id
+  // The app doesn't use this method but I put here in case you want to see it
+  static Future<List<Map<String, dynamic>>> getItem(int id) async {
+    final db = await SqlHelper.db();
+    return db.query('items', where: "id = ?", whereArgs: [id], limit: 1);
   }
 }

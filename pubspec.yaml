@@ -43,6 +43,9 @@ dependencies:
   expansion_tile_card:
   lottie: ^2.1.0
   sqflite: ^2.2.4+1
+  hive_flutter:
+  hive:
+  path_provider:
 
 
   # The following adds the Cupertino Icons font to your application.
