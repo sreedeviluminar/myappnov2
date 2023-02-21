@@ -27,19 +27,19 @@ class HiveDemoState extends State {
   }
 
   void _refreshItems() {
-    final data = box.keys.map((key) {
+    final item = box.keys.map((key) {
       final value = box.get(key);
       return {"key": key, "name": value["name"], "quantity": value['quantity']};
     }).toList();
     setState(() {
-      items = data.reversed.toList();
+      items = item.reversed.toList();
     });
   }
 
   // Create new item
   Future<void> additem(Map<String, dynamic> newItem) async {
     await box.add(newItem);
-    _refreshItems(); // update the UI
+    _refreshItems();
   }
 
   @override
@@ -50,7 +50,7 @@ class HiveDemoState extends State {
       ),
       body: items.isEmpty
           ? const Center(
-              child: Text("No Data"),
+              child: CircularProgressIndicator(),
             )
           : ListView.builder(
               itemCount: items.length,
