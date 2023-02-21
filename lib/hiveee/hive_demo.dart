@@ -99,9 +99,13 @@ class HiveDemoState extends State {
       quantity_controller.text = existingData['quantity'];
     }
     showModalBottomSheet(
+        isScrollControlled: true,
+        elevation: 3,
         context: context,
         builder: (context) {
+
           return Container(
+
             padding: EdgeInsets.only(
               bottom: MediaQuery.of(context).viewInsets.bottom,
               top: 15,
@@ -116,7 +120,7 @@ class HiveDemoState extends State {
                   controller: name_controller,
                   decoration: InputDecoration(hintText: 'Name'),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 20,),
                 TextField(
                   controller: quantity_controller,
                   decoration: InputDecoration(hintText: 'Quantity'),
