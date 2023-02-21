@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  await Hive.openBox("itembox");
+  await Hive.openBox("mybox");
   runApp(MaterialApp(
     home: HiveDemo(),
   ));
@@ -18,7 +18,7 @@ class HiveDemo extends StatefulWidget {
 class HiveDemoState extends State {
   List<Map<String, dynamic>> items = [];
 
-  final box = Hive.box('itembox');
+  final box = Hive.box('mybox');
 
   @override
   void initState() {
@@ -58,12 +58,13 @@ class HiveDemoState extends State {
                 final currentItem = items[index]; // fetching a single key - value pair from the list
                 return Card(
                   margin: EdgeInsets.all(10),
-                  elevation: 3,
+                  //elevation: 3,
                   child: ListTile(
                     title: Text(currentItem['name']),
                     subtitle: Text(currentItem['quantity'].toString()),
                     trailing: Row(
-                     mainAxisSize: MainAxisSize.min,
+                     mainAxisSize: MainAxisSize.min, // if both main axis size and elevation is missing nothing will appear
+                                                     // if main axis size is there then the list of card will appear
                       children: [
                         IconButton(
                             onPressed: () {
