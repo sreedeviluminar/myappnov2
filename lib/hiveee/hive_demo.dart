@@ -46,7 +46,7 @@ class HiveDemoState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hive 1"),
+        title: const Text("Hive 1"),
       ),
       body: items.isEmpty
           ? const Center(
@@ -55,28 +55,29 @@ class HiveDemoState extends State {
           : ListView.builder(
               itemCount: items.length,
               itemBuilder: (_, index) {
-                final currentItem = items[index]; // fetching a single key - value pair from the list
+                final currentItem = items[
+                    index]; // fetching a single key - value pair from the list
                 return Card(
-                  margin: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   //elevation: 3,
                   child: ListTile(
                     title: Text(currentItem['name']),
                     subtitle: Text(currentItem['quantity'].toString()),
                     trailing: Row(
-                     mainAxisSize: MainAxisSize.min, // if both main axis size and elevation is missing nothing will appear
-                                                     // if main axis size is there then the list of card will appear
+                      mainAxisSize: MainAxisSize.min,
+                      // if both main axis size and elevation is missing nothing will appear
+                      // if main axis size is there then the list of card will appear
                       children: [
                         IconButton(
                             onPressed: () {
                               _showForm(context, currentItem['key']);
                             },
-                            icon: Icon(Icons.edit)),
+                            icon: const Icon(Icons.edit)),
                         IconButton(
                             onPressed: () {
-
                               deleteitem(currentItem['key']);
                             },
-                            icon: Icon(Icons.delete))
+                            icon: const Icon(Icons.delete))
                       ],
                     ),
                   ),
@@ -84,7 +85,7 @@ class HiveDemoState extends State {
               }),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showForm(context, null),
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -104,9 +105,7 @@ class HiveDemoState extends State {
         elevation: 3,
         context: context,
         builder: (context) {
-
           return Container(
-
             padding: EdgeInsets.only(
               bottom: MediaQuery.of(context).viewInsets.bottom,
               top: 15,
@@ -119,15 +118,17 @@ class HiveDemoState extends State {
               children: [
                 TextField(
                   controller: name_controller,
-                  decoration: InputDecoration(hintText: 'Name'),
+                  decoration: const InputDecoration(hintText: 'Name'),
                 ),
-                SizedBox(height: 20,),
+                const SizedBox(
+                  height: 20,
+                ),
                 TextField(
                   controller: quantity_controller,
-                  decoration: InputDecoration(hintText: 'Quantity'),
+                  decoration: const InputDecoration(hintText: 'Quantity'),
                   keyboardType: TextInputType.number,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 ElevatedButton(
@@ -155,11 +156,15 @@ class HiveDemoState extends State {
         });
   }
 
+  Future<void> updateitem(int itemkey, Map<String, dynamic> data) async{
+     await box.put(itemkey, data);
+     _refreshItems();
+  }
 
+  Future<void> deleteitem(int itemkey) async{
+    await box.delete(itemkey);
+    _refreshItems();
 
-  void updateitem(int itemkey, Map<String, String> map) {}
-
-  void deleteitem(current_item) {}
-
- 
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Successfully Deleted the item")));
+  }
 }
